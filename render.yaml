@@ -10,4 +10,4 @@ services:
       - key: PYTHON_VERSION
         value: 3.11
       - key: SECRET_KEY
-        value: your-secret-key-here
+        value: django-insecure-upw1vx6dq&_c!4c649^83s%!b=pn7)f2@6q9u&*)ta@7$_l&kt
