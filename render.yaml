@@ -3,10 +3,10 @@ services:
     name: quizapp-django
     env: python
     buildCommand: ""
-    startCommand: gunicorn quizapp.wsgi:application
+    startCommand: gunicorn project.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
-        value: quizapp.settings
+        value: project.settings
       - key: PYTHON_VERSION
         value: 3.11
       - key: SECRET_KEY
