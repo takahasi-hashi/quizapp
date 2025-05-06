@@ -1,11 +1,13 @@
 services:
   - type: web
-    name: quizapp
+    name: quizapp-django
     env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn quizapp.wsgi:application"
+    buildCommand: ""
+    startCommand: gunicorn quizapp_pro.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
-        value: quizapp.settings
+        value: quizapp_pro.settings
       - key: PYTHON_VERSION
         value: 3.11
+      - key: SECRET_KEY
+        value: your-secret-key-here
