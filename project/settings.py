@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +27,7 @@ SECRET_KEY = 'django-insecure-upw1vx6dq&_c!4c649^83s%!b=pn7)f2@6q9u&*)ta@7$_l&kt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['.onrender.com']
 
 # Application definition
 
