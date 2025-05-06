@@ -1,0 +1,9 @@
+<h2>解説</h2>
+{% for r in results %}
+  <h3>問題 {{ forloop.counter }}</h3>
+  <p>{{ r.question }}</p>
+  <p>あなたの答え: {{ r.user_answer }} - {% if r.user_answer == r.correct %}正解{% else %}不正解{% endif %}</p>
+  <p>正解: {{ r.correct }}</p>
+  <p>解説: {{ r.explanation }}</p>
+  <hr>
+{% endfor %}

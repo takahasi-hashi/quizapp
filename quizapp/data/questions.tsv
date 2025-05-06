@@ -1,0 +1,97 @@
+id	question	choices_A	choices_B	choices_C	choices_D	answer	explanation
+1	"次のコードの出力結果は？
+print([i**2 for i in range(3)])"	[0, 1, 4]	[1, 4, 9]	[0, 1, 2]	[1, 2, 3]	A	range(3)は0,1,2を生成。それぞれ二乗して[0,1,4]になる。
+2	"次のコードの出力結果は？
+s = ""Python""
+print(s[::-1])"	nohtyP	nothyP	nohyP	エラーになる	A	スライス[::-1]は逆順になる。
+3	"次のコードの出力結果は？
+try:
+    1 / 0
+except ZeroDivisionError:
+    print(""division by zero"")
+except:
+    print(""some error"")"	division by zero	some error	何も表示されない	エラーになる	A	ZeroDivisionErrorが発生し、最初のexceptに捕まる。
+4	"次のコードの結果は？
+a = [1, 2, 3]
+b = a
+b.append(4)
+print(a)"	[1, 2, 3]	[1, 2, 3, 4]	[1, 2, 4]	エラーになる	B	aとbは同じリストを指しているのでbの変更はaにも影響する。
+5	キーが存在しない場合にデフォルト値を返すメソッドはどれ？	get()	set()	pop()	update()	A	get(key, default)はキーがなければデフォルトを返す。
+6	ファイルを読み取り専用で開き、かつ自動で閉じる方法はどれ？	"file.open(""r"")"	"with open(file, ""r""):"	"open(file, ""r"").close()"	"file = open(file, ""w"")"	B	with構文を使うと安全に自動でファイルを閉じる。
+7	"次の関数の返り値は？
+def func(x, y=5):
+    return x + y
+
+print(func(3))"	3	5	8	エラー	C	デフォルト引数y=5なので3+5=8になる。
+8	"次のコードの結果は？
+a = iter([1, 2, 3])
+print(next(a))
+print(next(a))"	1\n2	1\n3	2\n3	エラーになる	A	iter()でイテレータ生成、next()で次の要素取得。
+9	"次のコードの出力は？
+class A:
+    def __init__(self):
+        self.value = 10
+
+obj = A()
+print(obj.value)"	0	10	None	エラーになる	B	__init__でvalueに10が設定されている。
+10	デコレータについて正しい説明はどれ？	関数に新たな機能を付与できる	関数を削除する機能	クラスを破棄する機能	モジュールをインポートする機能	A	デコレータは関数に機能を追加できる。
+11	"次のコードの出力結果は？
+print([x for x in range(5) if x % 2 == 0])"	[0, 1, 2, 3, 4]	[0, 2, 4]	[1, 3]	[2, 4]	B	偶数のみ抽出されるので[0,2,4]。
+12	"次のコードで正しいものはどれ？
+a = (1)
+b = (1,)"	aもbもタプル	aはint、bはタプル	aはタプル、bはint	どちらもint	B	(1,)のカンマがないと単なるintになる。
+13	"次のコードの出力結果は？
+a = {1, 2, 3}
+a.add(2)
+print(a)"	{1, 2, 3}	{1, 2, 2, 3}	{2, 3}	エラーになる	A	セットは重複要素を持たない。
+14	"次のコードの出力結果は？
+d = {x: x**2 for x in range(3)}
+print(d)"	{0:0, 1:1, 2:2}	{0:0, 1:1, 2:4}	{0:1, 1:4, 2:9}	エラーになる	B	キーがx、バリューがx**2。
+15	"次のコードの出力は？
+f = lambda x: x * 2
+print(f(3))"	3	6	9	エラー	B	lambda式によりxを2倍する。
+16	正しくモジュールをインポートする方法はどれ？	import math.pi	import math	include math	using math	B	Pythonではimportを使う。
+17	"次のコードの結果は？
+try:
+    int('Python')
+except ValueError:
+    print(""value error"")
+except Exception:
+    print(""general error"")"	value error	general error	エラーになる	何も表示されない	A	int('Python')はValueErrorになる。
+18	"次のコードの目的は？
+with open(""test.txt"", ""r"") as f:
+    data = f.read()"	ファイルを書き込む	ファイルを削除する	ファイルを安全に開き、読んで閉じる	ファイルを圧縮する	C	with構文で安全にファイルを開閉する。
+19	"次のコードの出力は？
+def gen():
+    yield 1
+    yield 2
+
+g = gen()
+print(next(g))
+print(next(g))"	1\n2	2\n1	1\n1	エラーになる	A	yieldで順に1,2を返す。
+20	次のうちイミュータブルな型はどれ？	list	dict	str	set	C	strは不変（イミュータブル）型。
+21	"次のコードの出力は？ \n
+a = [1, 2, 3, 4, 5]; 
+print(a[1:4])"	[1, 2, 3]	[2, 3, 4]	[2, 3, 4, 5]	[1, 2, 3, 4]	B	スライスはstart番目からend-1番目まで取り出します。
+22	"次のコードの出力は？ 
+d = {'x':1, 'y':2}; 
+d.update({'y':3, 'z':4}); 
+print(d)"	{'x':1, 'y':2, 'z':4}	{'x':1, 'y':3, 'z':4}	{'x':1, 'z':4}	エラーになる	B	updateは既存キーを上書きし、新しいキーを追加します。
+23	次の関数定義の正しい型アノテーションは？	def add(x: int, y: int) -> int:	def add(int x, int y) -> int:	def add(x, y) -> int:	def add(x: int, y: int) -> None:	A	Pythonでは引数名:型、返り値は->型と記述します。
+24	"次のコードの出力は？ print(""Python"".lower())"	python	PYTHON	Python	エラーになる	A	lower()は文字列を小文字に変換します。
+25	次のコードの出力は？ print([i for i in range(5) if i % 2 != 0])	[0, 2, 4]	[1, 3]	[1, 2, 3, 4]	[0, 1, 2, 3, 4]	B	奇数（1と3）のみ抽出されます。
+26	例外処理で正しいexceptの順番は？	これで正しい	Exceptionを先に書く	ZeroDivisionErrorを先に書く	順番は関係ない	A	具体的な例外を先に、汎用例外を後に書きます。
+27	Pythonでパッケージに必要なものは？	__init__.py	setup.py	requirements.txt	main.py	A	パッケージには__init__.pyが必要です（以前は必須）。
+28	イテレータの特徴は？	一度しかループできない	無限ループする	同時に複数回使える	メモリを大量に消費する	A	イテレータは消費型で、一度進んだら戻れません。
+29	次のコードの出力は？ def func(x, lst=[]): lst.append(x); return lst; print(func(1)); print(func(2))	[1]\n[2]	[1]\n[1,2]	[1,2]\n[1,2]	エラーになる	B	デフォルト引数のリストは関数呼び出し間で共有されます。
+30	"ファイルオープンモード""a""の意味は？"	読み込み専用	書き込み専用（上書き）	書き込み専用（追記）	バイナリ読み込み	C	aモードは追記モードです。
+31	次のコードの出力は？ a = {1, 2, 3}; b = {2, 3, 4}; print(a & b)	{2, 3}	{1, 4}	{1, 2, 3, 4}	{}	A	&は集合の積集合を取ります。
+32	イミュータブルな型は？	list	dict	tuple	set	C	tupleはイミュータブル（変更不可）です。
+33	次のコードの出力は？ print(list(range(10, 3, -2)))	[10, 8, 6, 4, 2]	[10, 8, 6, 4]	[10, 8, 6]	[3, 5, 7, 9]	C	10から3より大きい間2ずつ減らします。
+34	mathモジュールからsqrtだけインポートする正しい方法は？	import sqrt from math	from math import sqrt	math.sqrt()	import math.sqrt	B	from モジュール名 import 関数名で部分インポートします。
+35	"次のコードの出力は？ name = ""Python""; print(f""Hello, {name}!"")"	Hello, Python!	Hello, {name}!	"Hello, ""Python""!"	エラーになる	A	f文字列は{}内の変数を展開します。
+36	次のコードの出力は？ f = lambda x, y: x * y; print(f(2, 3))	5	6	8	エラー	B	lambda式はその場で小関数を作成、2×3=6。
+37	次のコードの出力は？ a = [1,2,3]; b = [1,2,3]; print(a == b, a is b)	True True	False True	True False	False False	C	==は値比較、isは同一オブジェクト比較です。
+38	"次のコードは正しいか？ try: int(""abc"") except (ValueError, TypeError) as e: print(""Error:"", e)"	正しい	エラーになる	複数exceptが必要	例外クラスは1つしか指定できない	A	タプルで複数例外をまとめてキャッチできます。
+39	"次のコードの出力は？ class Parent: def greet(self): print(""Hello from Parent""); class Child(Parent): pass; c = Child(); c.greet()"	Hello from Parent	エラーになる	何も表示されない	Hello from Child	A	子クラスは親クラスのメソッドを継承します。
+40	リストaから要素2を削除する正しい方法は？	a.remove(2)	del a[2]	a.pop(2)	a.delete(2)	A	remove(値)はリストから指定した値を削除します。

@@ -1,0 +1,26 @@
+<form method="post">
+  {% csrf_token %}
+  <p>{{ q_number }} / {{ total }}</p>
+  <p>{{ question.question }}</p>
+
+  {% for choice in choices %}
+    <div>
+      <label>
+        <input type="radio" name="choice" value="{{ choice|slice:"3:" }}" {% if choice|slice:"3:" == selected_answer %}checked{% endif %}>
+        {{ choice }}
+      </label>
+    </div>
+  {% endfor %}
+
+  <div style="margin-top: 1em;">
+    {% if q_number > 1 %}
+      <button type="submit" name="action" value="prev">前の問題</button>
+    {% endif %}
+    {% if q_number < total %}
+      <button type="submit" name="action" value="next">次の問題</button>
+    {% else %}
+      <button type="submit" name="action" value="next">解説へ</button>
+    {% endif %}
+    <button type="submit" name="action" value="end">途中で解説を見る</button>
+  </div>
+</form>
