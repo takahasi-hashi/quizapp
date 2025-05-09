@@ -14,15 +14,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# project/urls.py
 from django.contrib import admin
-from django.urls import path, include  # ← include を追加
-
+from django.urls import path, include
+from django.shortcuts import redirect
 
 urlpatterns = [
+    path('', lambda request: redirect('quizapp/', permanent=True)),
+    path('quiz', lambda request: redirect('quizapp/', permanent=True)),
+    path('quizapp/', include('quizapp.urls')),
     path('admin/', admin.site.urls),
-    path('quiz/', include('quizapp.urls')),
-    path('', lambda request: redirect('quiz/', permanent=True)),
-    path('quiz', lambda request: redirect('quiz/', permanent=True)),  # スラッシュなし→ありにリダイレクト
-    path('admin/', admin.site.urls),
-    path('quiz/', include('quiz.urls')),
 ]
