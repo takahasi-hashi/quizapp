@@ -21,4 +21,8 @@ from django.urls import path, include  # ← include を追加
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('quiz/', include('quizapp.urls')),
+    path('', lambda request: redirect('quiz/', permanent=True)),
+    path('quiz', lambda request: redirect('quiz/', permanent=True)),  # スラッシュなし→ありにリダイレクト
+    path('admin/', admin.site.urls),
+    path('quiz/', include('quiz.urls')),
 ]
