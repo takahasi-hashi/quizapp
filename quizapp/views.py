@@ -3,6 +3,10 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseNotFound
 from .utils import load_questions_from_tsv
 
+# トップページ表示
+def index_view(request):
+    return render(request, 'quizapp/index.html')
+
 # 問題表示ビュー
 def question_view(request, q_number):
     questions = load_questions_from_tsv()

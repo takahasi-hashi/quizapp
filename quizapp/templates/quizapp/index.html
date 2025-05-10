@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Python3エンジニア認定基礎試験 模擬試験</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 50px;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 1.1em;
+        }
+        a.button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+        }
+        a.button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Python3エンジニア認定基礎試験　模擬試験</h1>
+        <p>一般社団法人Pythonエンジニア育成推進協会の<br>
+        【Python3エンジニア認定基礎試験】を想定した模擬試験です。</p>
+        <a class="button" href="{% url 'quizapp:question' q_number=1 %}">模擬試験を受験する</a>
+    </div>
+</body>
+</html>
