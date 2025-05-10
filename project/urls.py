@@ -21,8 +21,7 @@ from django.shortcuts import redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('quizapp/', include('quizapp.urls')),
+    path('quizapp/', include(('quizapp.urls', 'quizapp'), namespace='quizapp')),  # ← namespace 追加
     path('', lambda request: redirect('quizapp:question', q_number=1)),
-    #path('quiz', lambda request: redirect('/quizapp/', permanent=True)),
 ]
 
