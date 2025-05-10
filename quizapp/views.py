@@ -4,7 +4,6 @@ from django.http import HttpResponseNotFound
 from .utils import load_questions_from_tsv
 
 # 問題表示ビュー
-# views.py の question_view を修正
 def question_view(request, q_number):
     questions = load_questions_from_tsv()
     total = len(questions)
@@ -31,13 +30,13 @@ def question_view(request, q_number):
             print("現在のセッション内の回答:", request.session.get('answers'))
 
         if action == 'end':
-            return redirect('quiz:result')
+            return redirect('quizapp:result')
         elif action == 'prev':
-            return redirect('quiz:question', q_number=q_number - 1)
+            return redirect('quizapp:question', q_number=q_number - 1)
         elif q_number < total:
-            return redirect('quiz:question', q_number=q_number + 1)
+            return redirect('quizapp:question', q_number=q_number + 1)
         else:
-            return redirect('quiz:result')
+            return redirect('quizapp:result')
 
     return render(request, 'quizapp/question.html', {
         'question': question,
@@ -46,8 +45,6 @@ def question_view(request, q_number):
         'choices': labeled_choices,
         'selected_answer': request.session.get('answers', {}).get(str(q_number), "")
     })
-
-
 
 # 結果表示ビュー
 def result_view(request):
@@ -96,5 +93,3 @@ def result_view(request):
         'score': score,
         'results': results,
     })
-
-
