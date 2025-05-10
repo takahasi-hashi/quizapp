@@ -23,6 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('quizapp/', include('quizapp.urls')),
     path('', lambda request: redirect('quizapp:question', q_number=1)),
-    path('quiz', lambda request: redirect('/quizapp/', permanent=True)),
+    #path('quiz', lambda request: redirect('/quizapp/', permanent=True)),
 ]
 
