@@ -18,6 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import redirect
+from quizapp import views as quizapp_views  # ← これを追加
 
 urlpatterns = [
     path('admin/', admin.site.urls),
