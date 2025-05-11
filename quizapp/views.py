@@ -2,12 +2,18 @@ import csv
 from django.shortcuts import render, redirect
 from django.http import HttpResponseNotFound
 from .utils import load_questions_from_tsv
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def index_view(request):
+    return render(request, 'quizapp/index.html')
 
 # トップページ表示
 def index_view(request):
     return render(request, 'quizapp/index.html')
 
 # 問題表示ビュー
+@login_required
 def question_view(request, q_number):
     questions = load_questions_from_tsv()
     total = len(questions)

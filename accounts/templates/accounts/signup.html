@@ -1,0 +1,8 @@
+<!-- accounts/templates/accounts/signup.html -->
+<h1>新規登録</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">登録</button>
+</form>
+<p>既にアカウントをお持ちの方は <a href="{% url 'accounts:login' %}">ログイン</a></p>

@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('quizapp/', include(('quizapp.urls', 'quizapp'), namespace='quizapp')),  # ← namespace 追加
     path('', quizapp_views.index_view, name='index'),  # ← ここで "/" をトップに
+    path('accounts/', include('accounts.urls')),
 ]
 
