@@ -1,7 +1,7 @@
 <form method="post">
   {% csrf_token %}
   <p>{{ q_number }} / {{ total }}</p>
-  <p>{{ question.question }}</p>
+  <pre>{{ question.question|linebreaksbr }}</pre>
 
   {% for choice in choices %}
     <div>

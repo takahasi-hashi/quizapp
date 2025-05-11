@@ -60,39 +60,36 @@ def result_view(request):
 
     for i, q in enumerate(questions, start=1):
         str_i = str(i)
-        user_answer_text = answers.get(str_i)
+        user_answer = answers.get(str_i)  # 実際の選択肢のテキスト
+        correct_label = q['correct']     # 例: 'A'
 
-        correct_label = q['correct']
         try:
             correct_index = index_to_label.index(correct_label)
             correct_text = q['choices'][correct_index]
         except (ValueError, IndexError):
             correct_text = "(不明)"
 
+        try:
+            user_index = q['choices'].index(user_answer)
+            user_label = index_to_label[user_index]
+            user_text = user_answer
+        except ValueError:
+            user_label = "未回答"
+            user_text = "（未選択）"
+
+        is_correct = (user_answer == correct_text)
+        if is_correct:
+            score += 1
+
         labeled_choices = [
             f"{label}. {choice}" for label, choice in zip(index_to_label, q['choices'])
         ]
-
-        if user_answer_text:
-            try:
-                user_index = q['choices'].index(user_answer_text)
-                user_label = index_to_label[user_index]
-                user_text = user_answer_text
-                user_answer = f"{user_label}. {user_text}"
-            except ValueError:
-                user_answer = None
-        else:
-            user_answer = None
-
-        is_correct = (user_answer_text == correct_text)
-        if is_correct:
-            score += 1
 
         results.append({
             'question': q['question'],
             'choices': labeled_choices,
             'correct': f"{correct_label}. {correct_text}",
-            'user_answer': user_answer,
+            'user_answer': f"{user_label}. {user_text}",
             'explanation': q['explanation'],
         })
 

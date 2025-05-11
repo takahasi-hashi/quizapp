@@ -2,7 +2,7 @@ import csv
 
 def load_questions_from_tsv(path='questions.tsv'):
     questions = []
-    with open(path, encoding='utf-8') as f:
+    with open(path, encoding='utf-8', newline='') as f:
         reader = csv.reader(f, delimiter='\t')
         next(reader)  # skip header
         for row in reader:

@@ -34,26 +34,32 @@
 </head>
 <body>
 
-    <h1>Python 3 エンジニア認定基礎  模擬試験結果</h1>
-    <p>あなたのスコア: <strong>{{ score }} / {{ results|length }}</strong></p>
+    <a href="{% url 'index' %}">トップページへ戻る</a>
+
+    <h1>Python 3 エンジニア認定基礎 模擬試験結果</h1>
+    <p>あなたの得点: <strong>{{ score }} / {{ results|length }}</strong></p>
 
     {% for item in results %}
-        <div class="question-block">
-            <p><strong>問題 {{ forloop.counter }}:</strong></p>
-            <p>{{ item.question|linebreaksbr }}</p>
-     <!--   <pre>{{ item.question|linebreaksbr  }}</pre> -->
-            <ul>
-                {% for choice in item.choices %}
-                    <li>{{ choice }}</li>
-                {% endfor %}
-            </ul>
-            <p class="correct">正解: {{ item.correct }}</p>
-            <p class="user-answer">あなたの答え: {{ item.user_answer }}</p>
-            <div class="explanation">
-                <strong>解説:</strong> {{ item.explanation }}
+        {% if item.user_answer %}
+            <div class="question-block">
+                <p><strong>問題 {{ forloop.counter }}:</strong></p>
+                <p>{{ item.question|linebreaksbr }}</p>
+                <ul>
+                    {% for choice in item.choices %}
+                        <li>{{ choice }}</li>
+                    {% endfor %}
+                </ul>
+                <p class="correct">正解: {{ item.correct }}</p>
+                <p class="user-answer">あなたの答え: {{ item.user_answer }}</p>
+                <div class="explanation">
+                    <strong>解説:</strong> {{ item.explanation }}
+                </div>
             </div>
-        </div>
+        {% endif %}
     {% endfor %}
 
+    <p><a href="{% url 'index' %}">トップページへ戻る</a></p>
+
 </body>
+
 </html>

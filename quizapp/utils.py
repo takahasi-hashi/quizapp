@@ -9,7 +9,10 @@ def load_questions_from_tsv():
         reader = csv.DictReader(f, delimiter='\t')  # DictReaderを使用してヘッダーをキーに変換
         for row in reader:
             # \n を実際の改行に変換
-            question_text = row['question'].replace('\\n', '\n')
+            question_raw = row.get('question')
+            if not question_raw:
+                continue  # 不完全な行をスキップ
+            question_text = question_raw.replace('\\n', '\n')
 
             questions.append({
                 'id': row['id'],  # TSVのid列を取得
